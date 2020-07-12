@@ -86,7 +86,8 @@ class Create extends Component{
                         <div>
                             <h1>Workout Lab</h1>
                             <p>Let's create a new workout to shared with the community<br></br>
-                               <span style={{color:"#dc3545"}}>* All fields are required</span>
+                               <span style={{color:"#dc3545"}}>* All fields are required</span><br></br>
+                               <span style={{color:"#dc3545"}}>Only registered users can create workouts</span>
                             </p>
                         </div>
                     </div>
