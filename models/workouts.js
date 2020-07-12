@@ -36,8 +36,8 @@ const workoutSchema = new mongoose.Schema({
         default: Date.now
     },
     workout_description:{
-        required:true,
-        type:{}
+        type:{},
+        required:true
     },
     likes_count:{
         type: Schema.Types.ObjectId,

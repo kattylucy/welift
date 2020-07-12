@@ -10,7 +10,7 @@ import Header from '../header/index';
 //assets and css
 import '../../style/workouts.css';
 import comments from '../../assets/workouts/comments.svg';
-import like from '../../assets/workouts/like.svg';
+import like from '../../assets/workouts/like.png';
 import liked from '../../assets/workouts/liked.svg';
 
 

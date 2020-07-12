@@ -12,10 +12,9 @@ import Modal from '../modal/index';
 
 //assets and css
 import '../../style/workouts.css';
-import comments from '../../assets/workouts/comments.svg';
-import like from '../../assets/workouts/like.svg';
-import liked from '../../assets/workouts/liked.svg';
-import ghost from '../../assets/workouts/ghost.svg';
+import comments from '../../assets/workouts/comments.png';
+import like from '../../assets/workouts/like.png';
+import liked from '../../assets/workouts/liked.png';
 
 
 

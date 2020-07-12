@@ -135,7 +135,8 @@
 }
 
 .main-page{
-    background-color: rgba(0, 0, 0, 0.844);
+    background-color:white;
+    height: 100vh;
 }
 
 .reccommended-workouts h3{

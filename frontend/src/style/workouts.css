@@ -5,7 +5,9 @@
     border-radius: 4px;
     padding: 10px;
 }
-
+.workout-card:hover{
+    border-color: var(--blueish);
+}
 .workout-card .workout-header{
     display: flex;
     justify-content: center;
@@ -262,6 +264,17 @@
 
 .authorField .selection-dropdown .dropdown-list{
     height: 90px;
+}
+.next button{
+    width: 120px;
+    background-color: var(--blueish);
+    border: transparent;
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.next button:disabled{
+    background-color: gray;
 }
 
 @media only screen and (min-width: 700px){

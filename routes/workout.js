@@ -10,33 +10,31 @@ const commentsModel = require('../models/comments');
 
 ///post a new workout
 
-router.post('/new', verify ,(req, res) => {
-    const userID = req.user;
+router.post('/new', (req, res) => {
+    const userID = req.get('user');
     const { workout_name, type, required_equipment, 
             workout_focus, muscle_group, difficulty, author_visible,
-            workout_description   } = req.body;
+            workout_description   } = req.body.workout;
 
-   userModel.findById(userID)
-   .then(response => {
-        const workout = new newWorkoutModel({
-            workout_name,
-            type,
-            required_equipment,
-            workout_focus,
-            muscle_group,
-            difficulty,
-            author_visible,
-            workout_description,
-            workout_author: response._id,
-        });
+            console.log(req.body.workout)
+
+
+    const workout = new newWorkoutModel({
+        workout_name,
+        type,
+        required_equipment,
+        workout_focus,
+        muscle_group,
+        difficulty,
+        author_visible,
+        workout_description,
+        workout_author: userID ? userID : null
+    })
         workout.save()
         .then(bresponse => {
-            res.send(bresponse)
-            
-        })
-        .catch(err => res.send({message:"something when wrong when trying to create the workout"}))
+            res.send(bresponse)  
+        }).catch(err => res.send(err))
    })   
-});
 
 
 ////************
