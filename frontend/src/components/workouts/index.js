@@ -36,7 +36,7 @@ class Workouts extends Component{
 
     likeWorkout = (workoutid) => {
         if(localStorage.id){
-            this.props.likeWorkout(workoutid)
+            this.props.likeWorkout(workoutid, 'all')
         }else{
             this.setState({showModal:true})
         }

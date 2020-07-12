@@ -11,7 +11,7 @@ import Header from '../header/index';
 import '../../style/workouts.css';
 import comments from '../../assets/workouts/comments.svg';
 import like from '../../assets/workouts/like.png';
-import liked from '../../assets/workouts/liked.svg';
+import liked from '../../assets/workouts/liked.png';
 
 
 
@@ -51,6 +51,15 @@ class Workout extends Component{
         }
     }
 
+    likeWorkout = (workoutid) => {
+        if(localStorage.id){
+            this.props.likeWorkout(workoutid, 'single')
+        }else{
+            this.setState({showModal:true})
+        }
+        
+    }
+
     render(){
         const workout = this.props.workout;
         return(
@@ -77,7 +86,8 @@ class Workout extends Component{
                                         <p>{workout.comments ? workout.comments.total_comments : '0'}</p>
                                     </div>
                                     <div onClick={() => this.likeWorkout(workout._id)}>
-                                        <img src={workout.likes_count ? workout.likes_count.user_ids.includes(localStorage.id) ? liked : null : like} alt="number of comments in this workout" />
+                                        <img src={workout.likes_count ? workout.likes_count.user_ids.includes(localStorage.id) ? liked : like : like} 
+                                             alt="number of comments in this workout" />
                                         <p>{workout.likes_count ? workout.likes_count.likes : '0'}</p>
                                     </div>
                                 </div>
@@ -85,69 +95,45 @@ class Workout extends Component{
 
                           <div className="sw-description">
                               <div style={{marginBottom:"10px"}}>
-                                  <p style={{fontWeight:"600", marginRight:"10px"}}>Workout type</p>
+                                  <p style={{fontWeight:"600", marginRight:"10px"}}>TYPE</p>
                                   <p>{workout.type}</p>
                               </div>
+                              <hr></hr>
                               <div style={{marginBottom:"10px"}}>
-                                  <p style={{fontWeight:"600", marginRight:"10px"}}>Workout Focus</p>
+                                  <p style={{fontWeight:"600", marginRight:"10px"}}>FOCUS</p>
                                  {workout.workout_focus.map((item, index) => {
                                      return <p key={index}>{item}</p>
                                  })}
                               </div>
+                              <hr></hr>
                               <div style={{marginBottom:"10px"}}>
-                                  <p style={{fontWeight:"600", marginRight:"10px"}}>Muscle Group</p>
+                                  <p style={{fontWeight:"600", marginRight:"10px"}}>MUSCLE</p>
                                  {workout.muscle_group.map((item, index) => {
                                      return <p key={index}>{item}</p>
                                  })}
                               </div>
-                              <div style={{marginBottom:"10px"}}>
-                                  <p style={{fontWeight:"600", marginRight:"10px"}}>Required Equipment</p>
-                                 {workout.required_equipment.map((item, index) => {
-                                     return <p key={index}>{item}</p>
-                                 })}
-                              </div>
+                          </div>
+                          <div style={{marginTop:"20px", textAlign:"center"}}>
+                                <p style={{fontWeight:"600", margin:"0px"}}>REQUIRED EQUIPMENT</p>
+                                {workout.required_equipment.map((item, index) => {
+                                    return <p key={index} style={{color:"var(--blueish)", margin:"0px"}}>{item}</p>
+                                })}
                           </div>
 
                           <div className="sw-workout-summary">
-                              {workout.type === "HIIT" || workout.type === "Cardio" || workout.type === "EMOM" || workout.type === "Bodyweight" || workout.type === "AMRAP"
-                                ?
-                                  <React.Fragment>
-                                      <div>
-                                        <h5>Workout Summary</h5>
-                                        <p>{workout.workout_description.details}</p>
-                                      </div>
-                                      <div>
-                                        <h5>Exercises</h5>
-                                        {workout.workout_description.exercises.map((item, index) => {
-                                            return <p key={index}>{item}</p>
-                                        })}
-                                      </div>
-                                  </React.Fragment>
-                                : null 
-                              }
-                              {workout.type === "TABATA"
-                                ?
-                                  <React.Fragment>
-                                      <div>
-                                        <h5>Workout Summary</h5>
-                                        <p>{workout.workout_description.details}</p>
-                                      </div>
-                                      <div>
-                                        <h5>Exercises</h5>
-                                        {workout.workout_description.exercises.map((item, index) => {
-                                            return <p key={index}>{item}</p>
-                                        })}
-                                      </div>
-                                      <div>
-                                        <h5>How to</h5>
-                                        <p><b>Work</b> for {workout.workout_description.work}</p>
-                                        <p><b>Rest</b> for {workout.workout_description.rest}</p>
-                                        <p><b>Sets</b> {workout.workout_description.rounds}</p>
-                                      </div>
-                                  </React.Fragment>
-                                : null 
-                              }
-
+                              <hr></hr>
+                                <div>
+                                    <h5>Workout Summary</h5>
+                                    <p>{workout.workout_description.details}</p>
+                                </div>
+                                <hr></hr>
+                                <div>
+                                    <h5>Exercises</h5>
+                                    {workout.workout_description.exercises.map((item, index) => {
+                                        return <p key={index}>{item}</p>
+                                    })}
+                                </div>
+                                <hr></hr>
                           </div>
 
 

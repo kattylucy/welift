@@ -16,9 +16,6 @@ router.post('/new', (req, res) => {
             workout_focus, muscle_group, difficulty, author_visible,
             workout_description   } = req.body.workout;
 
-            console.log(req.body.workout)
-
-
     const workout = new newWorkoutModel({
         workout_name,
         type,
@@ -28,7 +25,7 @@ router.post('/new', (req, res) => {
         difficulty,
         author_visible,
         workout_description,
-        workout_author: userID ? userID : null
+        workout_author: userID 
     })
         workout.save()
         .then(bresponse => {

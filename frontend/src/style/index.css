@@ -121,7 +121,7 @@ input::placeholder{
 }
 
 .btn-auth{
-    background-color: #07a3ba;
+    background-color: var(--blueish);
     color: white;
     font-size: 18px;
     font-weight: 800;
@@ -130,7 +130,7 @@ input::placeholder{
     width: 90%;
 }
 .btn-auth:disabled{
-    background-color: #6cb8c4;
+    background-color:gray;
     cursor: not-allowed;
 }
 

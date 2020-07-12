@@ -46,7 +46,7 @@
 }
 .workout-interaction div{
     display: flex;
-    padding: 0px 10px;
+    padding: 0px 5px;
 }
 .workout-card .workout-middle p{
     margin: 0px;
@@ -84,6 +84,7 @@
 .sw-header{
     position: relative;
 }
+
 .sw-header h1{
     position: absolute;
     color: white;
@@ -114,6 +115,7 @@
 .sw-media img{
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 .sw-media p{
     margin: 0px;
@@ -133,11 +135,24 @@
 .sw-description{
     margin-top: 20px;
 }
+.sw-description{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.sw-description div{
+    margin: 0px 20px;
+}
+.sw-description hr{
+    border: transparent;
+    border-right: 3px solid var(--blueish);
+    height: 40px;
+    border-radius: 4px;
+}
 
 .sw-workout-summary h5{
-    background-color: var(--blueish);
-    color: white;
-    padding: 10px 0px;
+    color: var(--blueish);
+    margin: 0px;
 }
 
 .sw-workout-summary p{
@@ -145,10 +160,14 @@
     font-size: 18px;
 }
 .sw-workout-summary div{
-    margin: 20px 0px;
+    margin: 20px 10px;
+}
+.sw-workout-summary hr{
+    border: none;
+    border-top: 2px solid var(--blueish);
 }
 .sw-comments{
-    margin: 30px 0px;
+    margin: 30px 10px;
 }
 .sw-comments h5{
     color: var(--blueish);
@@ -161,14 +180,15 @@
     border-radius: 4px;
 }
 .sw-comments button{
-    border: transparent;
-    background-color: var(--blueish);
-    color: white;
+    border: 1px solid var(--blueish);
+    background-color: transparent;
+    color: var(--blueish);
     margin: 10px 0px;
     font-weight: 800;
     font-size: 18px;
-    padding: 10px 0px;
+    padding: 5px 0px;
     border-radius: 4px;
+    width: 150px;
 }
 .sw-comments div{
     display: flex;
@@ -276,6 +296,26 @@
 .next button:disabled{
     background-color: gray;
 }
+.selected-exercises{
+    display: flex;
+    flex-wrap: wrap;
+}
+.selected-exercises p{
+    border: 1px solid var(--blueish);
+    font-size: 15px;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.selected-exercises span{
+    color: var(--blueish);
+    font-weight: 800;
+    cursor: pointer;
+}
+.sw-rating p{
+    display: none;
+}
+
 
 @media only screen and (min-width: 700px){
     .single-workout {
@@ -338,8 +378,12 @@
     .sw-rating{
         width: 90%;
     }
-    .sw-description{
-        justify-content: space-around;
+    .sw-description {
+        justify-content: center;
+        margin: 30px 120px;
+    }
+    .sw-comments .comments{
+        width: fit-content;
     }
     
 

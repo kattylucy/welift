@@ -55,7 +55,7 @@ export const getworkouts = () => dispatch => {
 
 
 
-export const likeWorkout = (workoutid) => dispatch => {
+export const likeWorkout = (workoutid, location) => dispatch => {
   Axios({
     method: "post",
     url: `${url}workouts/like`,
@@ -65,9 +65,11 @@ export const likeWorkout = (workoutid) => dispatch => {
     }
   })
     .then(response => {
-      if(response.status === 200){
+      if(response.status === 200 && location === "all"){
         dispatch( getworkouts() )
-        setToast.success("Like posted")
+      }
+      if(response.status === 200 && location === "single"){
+        dispatch( getworkout(workoutid) )
       }
     })
     .catch(err => {

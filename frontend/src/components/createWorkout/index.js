@@ -49,21 +49,29 @@ class Create extends Component{
     }
 
     createWorkout = () => {
-        const visible = this.state.author[0].name === "Yes" ? true : false;
-        const workout ={
-            workout_name: this.state.title,
-            type: this.state.type[0].name,
-            required_equipment: this.state.equipment.map(item => item.name),
-            workout_focus: this.state.focus.map(item => item.name),
-            difficulty: this.state.difficulty[0].number,
-            author_visible: visible,
-            muscle_group: this.state.group.map(item => item.name),
-            workout_description: {
-                exercises: this.state.exercises,
-                details: this.state.description
+        if(localStorage.id){
+            const visible = this.state.author[0].name === "Yes" ? true : false;
+            const workout ={
+                workout_name: this.state.title,
+                type: this.state.type[0].name,
+                required_equipment: this.state.equipment.map(item => item.name),
+                workout_focus: this.state.focus.map(item => item.name),
+                difficulty: this.state.difficulty[0].number,
+                author_visible: visible,
+                muscle_group: this.state.group.map(item => item.name),
+                workout_description: {
+                    exercises: this.state.exercises,
+                    details: this.state.description
+                }
             }
+            this.props.createWorkout(workout)
+        }else{
+            this.setState({showModal:true})
         }
-        this.props.createWorkout(workout)    
+    }
+
+    closeModal = () => {
+        this.setState({showModal:false})
     }
 
 
