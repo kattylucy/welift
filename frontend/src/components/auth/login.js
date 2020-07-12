@@ -44,6 +44,7 @@ class Login extends Component{
                 <div className="header-auth">
                     <Link to={'/'}><img src={logo} alt="we lift logo" /></Link>
                 </div>
+                <div style={{backgroundColor:"var(--blueish)", color:"white", fontSize:"20px", textAlign:"center"}}>FOR TESTING:<br></br>  email: test@user.com <br></br> password: password</div>
                 <div className="overlay">
                     {this.props.error ? <p className="error">{this.props.error.error}</p> : null}
 
