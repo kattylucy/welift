@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+:root{
+    --orange: #07a3ba;
+    --purple: #6236FF;
+    --selected: rgb(54, 58, 79);
+    --blueish: #FA6400;
+    --pale-grey: #f5f6f8;
+}
+*{
+    font-family: 'Nunito', sans-serif;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    color: black;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,.1);
+  }
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.317);
+    border-radius: 7px;
+  }
+
+
+
+#root{
+    background-color: #e9ebee;
+    min-height: 100vh;
+}
+
+
+.white-btn{
+    color: black;
+    font-weight: 600;
+    border: 1px solid white;
+    background-color: transparent;
+    border-radius: 4px;
+    width: 100px;
+    font-size: 18px;
+    text-transform: capitalize;
+    background-color: white;
+}
+
+.orange-btn{
+    background-color: var(--blueish);
+    color: white;
+    font-weight: 800;
+    border: none;
+    height: 30px;
+    border-radius: 7px;
+    width: 100px;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+input::placeholder{
+    color:#00000029;
+}
+
+
+.auth-page{
+    background-image: url('../assets/backgroundmobile.png');
+    background-size: cover;
+    height: 100vh;
+
+}
+
+.auth-page .header-auth{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.auth-page .header-auth img{
+    width: 120px;
+    height: auto;
+}
+
+.auth-page .overlay{
+    position: relative;
+    float: left;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 7px;
+}
+
+.auth-page h1{
+    color: white;
+    font-weight: 800;
+}
+
+.auth-page .form div{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 20px;
+}
+
+.auth-page .form label{
+    color: white;
+    font-size: 18px;
+    margin: 0px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.auth-page .form input{
+    background-color: transparent;
+    border: transparent;
+    border-bottom: 3px solid white;
+    height: 40px;
+    color: white;
+}
+.auth-page .form input:focus{
+    outline: none;
+    background-color: transparent;
+}
+
+.btn-auth{
+    background-color: #07a3ba;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    border: none;
+    height: 40px;
+    width: 90%;
+}
+.btn-auth:disabled{
+    background-color: #6cb8c4;
+    cursor: not-allowed;
+}
+
+.register-btn{
+    background-color: white;
+    margin-top: 20px;
+    color: black;
+}
+
+.nd{
+    background-color: var(--orange);
+}
+
+.error{
+    font-size: 18px;
+    margin:10px;
+    color: rgb(227, 35, 35);
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.Modal-Overlay{
+    background-color: rgba(0, 0, 0, 0.434);
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    width: 100%;
+    z-index: 9999999999;
+    left: 0;
+}
+.modal-children{
+    background-color: white;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+}
+
+.selection-dropdown input{
+    border: transparent;
+    background-color: transparent;
+}
+.selection-dropdown .wrapper .input-wrapper,
+.form-field-not-search input{
+    background-image: url(/static/media/arrowdown.ae427edb.svg);
+    background-repeat: no-repeat;
+    background-position: 95%;
+    background-size: 15px;
+    height: 40px;
+    border-radius: 4px;
+    background-color:var(--pale-grey);
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+}
+.form-field-not-search input{
+    border: transparent;
+    background-image: none;
+}
+.form-field-not-search input:focus{
+    outline: none;
+}
+.selection-dropdown .wrapper,
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+.selection-dropdown label,
+.form-field label{
+    font-weight: 600;
+    font-size: 18px;
+}
+.selection-dropdown .dropdown-list{
+    border-color: rgb(247, 231, 231);
+    width: 95vw;
+    margin-top: 2px;
+    border-radius: 4px;
+    box-shadow: 0px 9px 18px -8px rgba(135, 131, 131, 0.338);
+    height: 150px;
+    transition: height .3s ease;
+}
+.selection-dropdown .dropdown-list div:hover{
+    border-left-color: var(--blueish);
+    color: var(--blueish)
+}
+
+
+.selection-dropdown .dropdown-list div{
+    border-bottom: 1px solid rgba(247, 231, 231, 0.338);
+    font-weight: 600;
+}
+
+.selection-dropdown .item-already-selected{
+    background-color: transparent;
+    color: var(--blueish);
+}
+.selection-dropdown input{
+    height: 40px;
+    padding-left: 5px;
+    width: 100%;
+}
+
+.selection-dropdown input:focus{
+    outline: none;
+}
+.selection-dropdown .input-wrapper p{
+    margin: 0px;
+    padding: 8px 5px;
+}
+
+.not-matches{
+    padding: 10px;
+    color: var(--blueish);
+    margin: 0px;
+    text-align: center;
+}
+
+#multiselect p{
+
+}
+
+
+
+@media screen and (min-width: 1000px){
+    .auth-page .overlay{
+        width: 500px;
+    }
+    .auth-page .header-auth img{
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .auth-page{
+        background-image: url('../assets/background.png')
+    }
+}
+@media screen and (min-width: 1300px){
+    .main-page{
+        margin: 0 auto;
+        width: 1200px;
+    }
+}
