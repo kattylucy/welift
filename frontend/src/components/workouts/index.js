@@ -12,8 +12,8 @@ import Modal from '../modal/index';
 
 //assets and css
 import '../../style/workouts.css';
-import comments from '../../assets/workouts/comments.png';
-import like from '../../assets/workouts/like.png';
+import comments from '../../assets/workouts/commentmain.png';
+import like from '../../assets/workouts/likedmain.png';
 import liked from '../../assets/workouts/liked.png';
 
 
