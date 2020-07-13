@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getworkout, likeWorkout, commentWorkout } from '../../actions/workoutactions';
+import { getworkout, likeWorkout, commentWorkout, dislikeWorkout } from '../../actions/workoutactions';
 import { exerciseType } from '../../data/select';
 import Rating from '../sharedComponents/rating';
 //components
@@ -57,13 +57,18 @@ class Workout extends Component{
     }
 
     likeWorkout = (workoutid) => {
+        const likedByCurrentUser = this.props.workout.likes_count.user_ids.includes(localStorage.id) ? true : false;
         if(localStorage.id){
-            this.props.likeWorkout(workoutid, 'single')
+            if(likedByCurrentUser){
+                this.props.dislikeWorkout(workoutid, "single");
+            }else{
+                this.props.likeWorkout(workoutid, "single");
+            }
         }else{
             this.setState({showModal:true})
         }
-        
     }
+
 
     render(){
         const workout = this.props.workout;
@@ -90,7 +95,7 @@ class Workout extends Component{
                                 <div onClick={() => this.likeWorkout(workout._id)}>
                                     <img src={workout.likes_count ? workout.likes_count.user_ids.includes(localStorage.id) ? liked : like : like} 
                                             alt="number of comments in this workout" />
-                                    <p>{workout.likes_count ? workout.likes_count.likes : '0'} likes</p>
+                                    <p>{workout.likes_count ? workout.likes_count.likes : '0'} like{workout.likes_count.likes === 1 ? null : 's'}</p>
                                 </div>
                           </div>
 
@@ -191,6 +196,6 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    { getworkout, likeWorkout, commentWorkout}
+    { getworkout, likeWorkout, commentWorkout, dislikeWorkout}
     
   )(Workout);
