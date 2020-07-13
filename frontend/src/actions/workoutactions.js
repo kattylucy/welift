@@ -77,6 +77,31 @@ export const likeWorkout = (workoutid, location) => dispatch => {
     });
 };
 
+
+
+export const dislikeWorkout = (workoutid, location) => dispatch => {
+  Axios({
+    method: "post",
+    url: `${url}workouts/${workoutid}/dislike`,
+    headers:headers(),
+    data:{
+      workoutid
+    }
+  })
+    .then(response => {
+        if(response.status === 200 && location === "all"){
+          dispatch( getworkouts() )
+        }
+        if(response.status === 200 && location === "single"){
+          dispatch( getworkout(workoutid) )
+        }
+    })
+    .catch(err => {
+      console.log(err)
+    });
+};
+
+
 export const commentWorkout = (workoutid, comment) => dispatch => {
   Axios({
     method: "post",

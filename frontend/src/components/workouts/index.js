@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getworkouts, likeWorkout  } from '../../actions/workoutactions';
+import { getworkouts, likeWorkout, dislikeWorkout } from '../../actions/workoutactions';
 import { exerciseType } from '../../data/select';
 import Rating from '../sharedComponents/rating';
 
@@ -34,14 +34,19 @@ class Workouts extends Component{
         this.props.getworkouts();
     }
 
-    likeWorkout = (workoutid) => {
+    likeWorkout = (workoutid, likedByCurrentUser) => {
         if(localStorage.id){
-            this.props.likeWorkout(workoutid, 'all')
+            if(likedByCurrentUser){
+                this.props.dislikeWorkout(workoutid, "all");
+            }else{
+                this.props.likeWorkout(workoutid, "all");
+            }
         }else{
             this.setState({showModal:true})
         }
-        
     }
+
+    
 
     closeModal = () => {
         this.setState({showModal:false})
@@ -77,7 +82,7 @@ class Workouts extends Component{
                                         <Link to={`/workout/${item._id}`}><img src={comments} alt="number of comments in this workout"/></Link>                                     
                                         <p>{item.comments ? item.comments.total_comments : '0'}</p>
                                     </div>
-                                    <div onClick={() => this.likeWorkout(item._id)}>
+                                    <div onClick={() => this.likeWorkout(item._id, likedByCurrentUser)}>
                                         <img src={likedByCurrentUser ? liked : like} alt="number of comments in this workout" />
                                         <p>{likesCount}</p>
                                     </div>
@@ -139,6 +144,6 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    { getworkouts, likeWorkout }
+    { getworkouts, likeWorkout, dislikeWorkout }
     
   )(Workouts);

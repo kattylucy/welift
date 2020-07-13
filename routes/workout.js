@@ -121,14 +121,19 @@ router.post('/like', verify, (req,res) => {
 ///remove like from a workout
 router.post('/:id/dislike', verify, (req,res) => {
     const userID = req.get('user');
-    const workout_id  = req.params.id;
+    const workout_id  = req.body.workoutid;
 
-    likesModel.findOneAndUpdate({workout_id}, {$pull: {'user_ids': userID._id}, '$inc': {likes: -1}})
+    likesModel.findOne({workout_id})
     .then(response => {
-        res.send(response)
+        if(response.likes !== 0 ){
+           const filter = response.user_ids.filter(item => item !== userID)
+           response.likes = response.likes - 1;
+           response.user_ids = filter;
+           response.save().then(responseLikes => res.send({message:"unliked workout"})).catch(err => console.log(err))
+        }
     })
     .catch(err => {
-        res.status(500).send(err)
+        res.send(err)
     })
 })
 
