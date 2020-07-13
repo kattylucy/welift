@@ -1,12 +1,14 @@
 
 .workout-card{
-    border: 1px solid rgba(164,164,179,.25);
+    -webkit-box-shadow: 10px 10px 24px 4px rgba(235,235,235,1);
+    -moz-box-shadow: 10px 10px 24px 4px rgba(235,235,235,1);
+    box-shadow: 10px 10px 24px 4px rgba(235,235,235,1);
     margin: 20px 0px;
     border-radius: 4px;
     padding: 10px;
 }
 .workout-card:hover{
-    border-color: var(--blueish);
+    box-shadow: 0px 0px 4px 8px rgba(235,235,235,1);
 }
 .workout-card .workout-header{
     display: flex;
@@ -77,133 +79,8 @@
     margin: 0px;
 }
 
-.single-workout{
-    background-color: white;
-}
 
-.sw-header{
-    position: relative;
-}
 
-.sw-header h1{
-    position: absolute;
-    color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: 800;
-    text-align: center;
-}
-.sw-rating p{
-    margin: 0px;
-    font-weight: 800;
-    font-size: 18px;
-    margin-left: 10px;
-}
-.sw-rating{
-    width: 80%;
-    display: flex;
-}
-.sw-body,
-.sw-media{
-    display: flex;
-}
-.sw-media{
-    margin-left: 10px;
-    margin-top: 5px;
-}
-.sw-media img{
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-.sw-media p{
-    margin: 0px;
-    font-size: 15px;
-    font-weight: 800;
-    margin-left: 5px;
-}
-.sw-media div{
-    display: flex;
-    margin-right: 10px;
-}
-
-.sw-description p {
-    margin: 0px;
-    font-size: 18px;
-}
-.sw-description{
-    margin-top: 20px;
-}
-.sw-description{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-.sw-description div{
-    margin: 0px 20px;
-}
-.sw-description hr{
-    border: transparent;
-    border-right: 3px solid var(--blueish);
-    height: 40px;
-    border-radius: 4px;
-}
-
-.sw-workout-summary h5{
-    color: var(--blueish);
-    margin: 0px;
-}
-
-.sw-workout-summary p{
-    margin: 0px;
-    font-size: 18px;
-}
-.sw-workout-summary div{
-    margin: 20px 10px;
-}
-.sw-workout-summary hr{
-    border: none;
-    border-top: 2px solid var(--blueish);
-}
-.sw-comments{
-    margin: 30px 10px;
-}
-.sw-comments h5{
-    color: var(--blueish);
-    font-weight: 800;
-}
-.sw-comments textarea{
-    border: 1px solid rgba(164,164,179,.25);
-    resize: none;
-    height: 90px;
-    border-radius: 4px;
-}
-.sw-comments button{
-    border: 1px solid var(--blueish);
-    background-color: transparent;
-    color: var(--blueish);
-    margin: 10px 0px;
-    font-weight: 800;
-    font-size: 18px;
-    padding: 5px 0px;
-    border-radius: 4px;
-    width: 150px;
-}
-.sw-comments div{
-    display: flex;
-    flex-direction: column;
-}
-
-.sw-comments .comments{
-    background-color: rgba(164,164,179,.25);
-    padding: 10px;
-    border-radius: 4p;
-    border-radius: 4px;
-    font-size: 18px;
-    font-weight: 500;
-    margin: 20px 0px;
-}
 
 .create-workout{
     background-color: white;
@@ -315,15 +192,97 @@
 .sw-rating p{
     display: none;
 }
+.single-workout{
+    background-color: rgba(0, 0, 0, 0.844);
+}
+.sw-header{
+    position: relative;
+}
+.sw-header img{
+    width: 100%;
+}
+.sw-header h1{
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    font-weight: 800;
+    margin: 0px;
+}
 
+.sw-body p{
+    color: white;
+}
+.sw-body img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.sw-body{
+    display:flex;
+    justify-content: center;
+}
+.sw-body div,
+.sw-body{
+    display: flex;
+}
+.sw-body div{
+    margin: 10px;
+}
+.sw-body p{
+    margin: 5px 10px 0px;
+    font-size: 18px;
+}
+.sw-description p{
+    color: white;
+    font-size: 18px;
+    margin: 5px 10px 0px;
+}
+.sw-description img{
+    width: 30px;
+    height: 30px;;
+}
+.sw-description div{
+    display: flex;
+    margin: 20px;
+}
+.sw-summary{
+    color: white;
+    margin: 0px 10px;
+}
+.sw-comments h5{
+    color:var(--blueish);
+}
+.sw-comments div{
+    display: flex;
+    flex-direction: column;
+}
+.sw-comments{
+    margin: 30px 10px 0px;
+}
+
+.sw-comments textarea{
+    background-color: rgba(255, 255, 255, 0.79);
+    resize: none;
+    border-color: transparent;
+    height: 120px;
+    border-radius: 4px;
+}
+.sw-comments button{
+    background-color: var(--blueish);
+    border: transparent;
+    border-radius: 4px;
+    color: white;
+    width: 150px;
+    margin-top: 10px;
+    align-self: flex-end;
+    font-weight: 600;
+}
 
 @media only screen and (min-width: 700px){
-    .single-workout {
-        background-color: white;
-        width: 500px;
-        margin: 0 auto;
-        padding: 0px 5px 10px;
-    }
+
     .sw-rating p{
         margin-top: 3px;
     }
@@ -365,6 +324,10 @@
         margin: 0 auto;
         flex-wrap: wrap;
     }
+    .single-workout{
+        width: 500px;
+        margin: 0 auto;
+    }
 }
 
 
@@ -372,16 +335,11 @@
     .workout-card{
         margin: 20px 10px;
     }
-    .single-workout{
-        width: 700px;
-    }
+
     .sw-rating{
         width: 90%;
     }
-    .sw-description {
-        justify-content: center;
-        margin: 30px 120px;
-    }
+
     .sw-comments .comments{
         width: fit-content;
     }

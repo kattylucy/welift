@@ -114,14 +114,13 @@ router.post('/like', verify, (req,res) => {
     })
     .catch(err => {
         res.status(500).send(err);
-        console.log(err);
     })
 })
 
 
 ///remove like from a workout
 router.post('/:id/dislike', verify, (req,res) => {
-    const userID = req.user;
+    const userID = req.get('user');
     const workout_id  = req.params.id;
 
     likesModel.findOneAndUpdate({workout_id}, {$pull: {'user_ids': userID._id}, '$inc': {likes: -1}})
