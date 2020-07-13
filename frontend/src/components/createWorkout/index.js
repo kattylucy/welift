@@ -11,9 +11,7 @@ import Header from '../header/index';
 import '../../style/workouts.css';
 import lab from '../../assets/lab.svg';
 import next from '../../assets/workouts/bluearrow.png';
-
-
-
+import loading from '../../assets/creating.gif';
 
 
 
@@ -49,6 +47,7 @@ class Create extends Component{
     }
 
     createWorkout = () => {
+        this.setState({modalCreate:true})
         if(localStorage.id){
             const visible = this.state.author[0].name === "Yes" ? true : false;
             const workout ={
@@ -71,7 +70,7 @@ class Create extends Component{
     }
 
     closeModal = () => {
-        this.setState({showModal:false})
+        this.setState({showModal:false, modalCreate:false})
     }
 
 
@@ -241,6 +240,18 @@ class Create extends Component{
                             <p>Sign in and get the full experience</p>
                        </div>
                         <Link to={'/signin'} style={{alignSelf:"center"}}><button className="orange-btn" style={{width:"250px", height:"40px"}}>Sign in</button></Link>
+                   </div>
+
+                </Modal>
+
+
+                <Modal 
+                    show={this.state.modalCreate}
+                    onClose={this.closeModal}
+                >
+                   <div style={{display:"flex", flexDirection:"column", padding:"20px"}}>
+                            <img src={loading} alt="your workout is being created" style={{alignSelf:"center", width:"70px", height:"70px"}}/>
+                            <p>Creating your workout...</p>
                    </div>
 
                 </Modal>

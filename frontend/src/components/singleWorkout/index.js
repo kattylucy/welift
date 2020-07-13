@@ -31,7 +31,7 @@ class Workout extends Component{
     }
 
     componentDidMount(){
-        this.props.getworkout(this.props.match.params.id)
+        this.props.getworkout(this.props.match.params.id);
     }
 
     likeWorkout = (workoutid) => {
@@ -95,7 +95,7 @@ class Workout extends Component{
                                 <div onClick={() => this.likeWorkout(workout._id)}>
                                     <img src={workout.likes_count ? workout.likes_count.user_ids.includes(localStorage.id) ? liked : like : like} 
                                             alt="number of comments in this workout" />
-                                    <p>{workout.likes_count ? workout.likes_count.likes : '0'} like{workout.likes_count.likes === 1 ? null : 's'}</p>
+                                    <p>{workout.likes_count ? `${workout.likes_count.likes} like${workout.likes_count.likes === 1 ? '' : 's'}` : '0 likes'}</p>
                                 </div>
                           </div>
 
@@ -151,7 +151,7 @@ class Workout extends Component{
                                     <button onClick={() => this.addComment(workout._id)}>Add Comment</button>
                                 </div>
                                 {workout.comments 
-                                    ? workout.comments.comments.reverse().map((item, index) => {
+                                    ? workout.comments.comments.map((item, index) => {
                                         return <div key={index} className="comments">{item}</div>
                                     })
                                     : null
