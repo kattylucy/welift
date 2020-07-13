@@ -85,6 +85,21 @@ router.get('/workout/:id',(req, res) => {
  });
 
 
+ ////************
+///// DELETE ONE WORKOUT
+// *****************
+
+router.delete('/delete', verify, (req, res) => {
+    const workout_id = req.body.workoutid;  
+
+    newWorkoutModel.deleteOne({_id:workout_id})
+    .then(response => {
+        res.send({message:"workout deleted"})
+    })
+    .catch(err => { res.send(err)})
+ });
+
+
 
 ////************
 ///// GET WORKOUTS BY AUTHOR

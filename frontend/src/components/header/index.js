@@ -76,7 +76,7 @@ class Header extends Component{
                         <div className="header-desktop">
                                 <div style={{margin:"20px"}}>
                                     <Link to={'/'}>Home</Link>
-                                    <Link to={`/${localStorage.id}/myuser`}>Workouts</Link>
+                                    <Link to={`/${localStorage.id}/myuser`}>My Workouts</Link>
                                     <Link to={`/createworkout`}>Create</Link>
                                 </div>
                         </div>

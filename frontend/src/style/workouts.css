@@ -338,6 +338,23 @@
     padding-bottom: 30px;
 }
 
+.delete-workout h3{
+    color: rgb(220, 53, 69);
+}
+.delete-workout{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+.delete-workout button{
+    margin-right: 10px;
+    width: 120px;
+    border: transparent;
+    height: 30px;
+    border-radius: 4px;
+}
+
 @media only screen and (min-width: 700px){
 
     .sw-rating p{

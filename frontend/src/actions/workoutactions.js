@@ -162,3 +162,20 @@ export const getMyWorkouts = () => dispatch => {
      console.log(err)
     });
 }
+
+export const deleteWorkout = (workoutid) => dispatch => {
+  Axios({
+    method: "delete",
+    url: `${url}workouts/delete`,
+    headers:headers(),
+    data:{
+      workoutid
+    }
+  })
+    .then(response => {
+        dispatch( getMyWorkouts() )
+    })
+    .catch(err => {
+     console.log(err)
+    });
+}

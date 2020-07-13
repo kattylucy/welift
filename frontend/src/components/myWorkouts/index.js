@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import Header from '../header/index';
 import { getUser } from '../../actions/userAction';
-import { getMyWorkouts } from '../../actions/workoutactions';
+import { getMyWorkouts, deleteWorkout } from '../../actions/workoutactions';
 import Moment from 'react-moment';
+import Modal from '../modal';
 //components
 import Workouts from '../workouts';
 import avatar from  '../../assets/avatar.svg';
@@ -22,8 +23,17 @@ class MyWorkouts extends Component{
 
     componentDidMount(){
         this.props.getMyWorkouts();
-       
     }
+
+    delete = (id) => {
+        this.setState({modal:true, workoutid:id})
+    }
+
+    deleteworkout = () => {
+        this.props.deleteWorkout(this.state.workoutid);
+    }
+
+    closeModal =() => {this.setState({modal:false})}
 
     render(){
         console.log(this.props.workouts)
@@ -45,7 +55,7 @@ class MyWorkouts extends Component{
                                 return(
                                         <div className="mp-workout-card" key={item.id}>
                                             <Link to={`/workout/${item._id}`}><p style={{fontSize:"20px"}}>{item.workout_name}</p></Link>
-                                            <p style={{color:"rgb(220, 53, 69)", textAlign:"right", cursor:"pointer"}}>Delete Workout</p>
+                                            <p style={{color:"rgb(220, 53, 69)", textAlign:"right", cursor:"pointer"}} onClick={() => this.delete(item._id)}>Delete Workout</p>
                                             <p style={{color:"black", fontSize:"13px", textAlign:"right"}}>Created <Moment fromNow ago>{date}</Moment></p>
                                         </div>
                                 )
@@ -56,6 +66,23 @@ class MyWorkouts extends Component{
 
                     </div>
                 </div>
+
+                <Modal 
+                    show={this.state.modal}
+                    onClose={this.closeModal}
+                >
+                   <div className="delete-workout">    
+                        <h3>Delete Workout</h3>
+                        <div>
+                            <p>Your workout helps the community <br></br> are you sure you want to delete it?</p>
+                        </div>
+                        <div style={{display:"flex", justifyContent:"center"}}>
+                            <button style={{backgroundColor:"rgb(220, 53, 69)", color:"white"}} onClick={this.deleteworkout}>Delete</button>
+                            <button onClick={this.closeModal}>Cancel</button>
+                        </div>
+                   </div>
+
+                </Modal>
 
                    
 
@@ -77,6 +104,6 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    {getUser, getMyWorkouts}
+    {getUser, getMyWorkouts, deleteWorkout}
     
   )(MyWorkouts);
