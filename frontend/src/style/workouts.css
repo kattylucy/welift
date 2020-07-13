@@ -194,6 +194,7 @@
 }
 .single-workout{
     background-color: rgba(0, 0, 0, 0.844);
+    padding: 10px 0px;
 }
 .sw-header{
     position: relative;
@@ -238,11 +239,12 @@
 .sw-description p{
     color: white;
     font-size: 18px;
-    margin: 5px 10px 0px;
+    margin: 5px 10px 0px 0px;
 }
 .sw-description img{
     width: 30px;
-    height: 30px;;
+    height: 30px;
+    margin-right: 10px;
 }
 .sw-description div{
     display: flex;
@@ -276,9 +278,17 @@
     border-radius: 4px;
     color: white;
     width: 150px;
-    margin-top: 10px;
+    margin: 10px 0px 30px;
     align-self: flex-end;
     font-weight: 600;
+}
+.comments{
+    color: white;
+    width: fit-content;
+    padding: 5px 10px;
+    box-shadow: 2px 2px 9px 0px rgb(58, 58, 58);
+    margin: 20px 0px;
+    border-left: 1px solid var(--blueish);
 }
 
 @media only screen and (min-width: 700px){

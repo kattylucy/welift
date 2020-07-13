@@ -97,20 +97,20 @@ class Workout extends Component{
                           <div className="sw-description">
                               <div>
                                   <img src={difficulty} />
-                                  <p>{workout.difficulty === 1 || workout.difficulty === 2 ? "Beginner" : null}</p>
-                                  <p>{workout.difficulty === 3 || workout.difficulty === 4 ? "Intermediate" : null}</p>
-                                  <p>{workout.difficulty === 5 ? "Advanced" : null}</p>
+                                  {workout.difficulty === 1 || workout.difficulty === 2 ? <p>Beginner</p> : null}
+                                  {workout.difficulty === 4 || workout.difficulty === 3 ? <p>Intermediate</p> : null}
+                                  {workout.difficulty === 5 ? <p>Advance</p> : null}
                               </div>
                               <div>
                                   <img src={equip} alt="workout equipment"/>
                                  {workout.required_equipment.map((item, index) => {
-                                     return <p key={index}>{item}</p>
+                                     return <p key={index}>{item}{index === workout.required_equipment.length -1 ? null : ','}</p>
                                  })}
                               </div>
                               <div>
                                   <img src={energy} alt="focus"/>
                                  {workout.workout_focus.map((item, index) => {
-                                     return <p key={index}>{item}</p>
+                                     return <p key={index}>{item} {index === workout.workout_focus.length -1 ? null : ','}</p>
                                  })}
                               </div>
                               <div>
@@ -125,7 +125,7 @@ class Workout extends Component{
                             <p>The following workout is a <b>{workout.type}</b> workout <br></br>{workout.workout_description.details}</p>
                             <h5>Exercises to follow:</h5>
                             <ul>
-                                {workout.workout_description.exercises.map(item => <li>{item}</li>)}
+                                {workout.workout_description.exercises.map((item,index) => <li key={index}>{item}</li>)}
                             </ul>
                         </div>
                        
