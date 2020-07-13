@@ -6,6 +6,7 @@ import signUp from './components/auth/signup';
 import login from './components/auth/login';
 import workout from './components/singleWorkout/index';
 import createworkout from './components/createWorkout';
+import myWorkouts from './components/myWorkouts';
 
 
 
@@ -24,6 +25,7 @@ function App() {
             <Route exact path="/signin" component={login}/>
             <Route exact path="/workout/:id" component={workout} />
             <Route exact path="/createworkout" component={createworkout} />
+            <Route exact path="/:id/myuser" component={myWorkouts} />
             <Route path="/" component={mainPage}/>
             <Redirect to="/"/>
         </Switch>

@@ -1,15 +1,10 @@
 
 .workout-card{
-    -webkit-box-shadow: 10px 10px 24px 4px rgba(235,235,235,1);
-    -moz-box-shadow: 10px 10px 24px 4px rgba(235,235,235,1);
-    box-shadow: 10px 10px 24px 4px rgba(235,235,235,1);
     margin: 20px 0px;
     border-radius: 4px;
-    padding: 10px;
+    box-shadow: rgb(230, 230, 230, .2) 0px 1px 4px;
 }
-.workout-card:hover{
-    box-shadow: 0px 0px 4px 8px rgba(235,235,235,1);
-}
+
 .workout-card .workout-header{
     display: flex;
     justify-content: center;
@@ -19,6 +14,7 @@
 .workout-card .workout-header img{
     width: 100%;
     margin: 0 auto;
+    border-radius: 4px 4px 0px 0px;
 }
 .workout-card .workout-header p{
     position: absolute;
@@ -36,7 +32,10 @@
 .workout-card .workout-middle{
     display: flex;
     justify-content: space-between;
-    padding: 10px 0px;
+    padding: 10px;
+}
+.workout-footer{
+    padding: 10px;
 }
 
 .workout-interaction{
@@ -55,6 +54,7 @@
 .workout-card .workout-middle p{
     margin: 0px;
     font-weight: 800;
+    color: white;
 }
 .workout-card .workout-interaction div p{
     margin: 0px;
@@ -72,6 +72,7 @@
     border: 1px solid rgba(164,164,179,.25);
     padding: 5px;
     margin: 0px 10px 10px 0px;
+    color: white;
 }
 .workout-footer .author span{
     color: var(--blueish);
@@ -79,6 +80,7 @@
 }
 .workout-footer .author{
     margin: 0px;
+    color: white;
 }
 
 
@@ -194,9 +196,7 @@
     display: none;
 }
 .single-workout{
-    background-color: rgba(0, 0, 0, 0.944);
-    padding: 10px 0px;
-    box-shadow: 2px 2px 9px 0px rgb(58, 58, 58);
+    padding:0px 0px 10px;
 }
 .sw-header{
     position: relative;
@@ -288,9 +288,54 @@
     color: white;
     width: fit-content;
     padding: 5px 10px;
-    box-shadow: 2px 2px 9px 0px rgb(58, 58, 58);
+    box-shadow: 2px 2px 9px 0px rgb(58, 58, 58, .3);
     margin: 20px 0px;
     border-left: 1px solid var(--blueish);
+}
+
+.mp-header img{
+    width: 100px;
+    height: 100px;
+    border:1px solid rgba(230, 230, 230, .8);
+    border-radius: 50%;
+    padding: 10px;
+}
+.mp-header{
+    display: flex;
+    padding: 20px;
+}
+.mp-header p{
+    font-size: 25px;
+    font-weight: 800;
+    margin: 30px;
+}
+.mypage hr{
+    border: transparent;
+    border-top: 1px solid rgba(230, 230, 230, .8);
+}
+
+.mypage h3{
+    margin: 0px 10px;
+    font-size: 25px;
+}
+
+
+.mp-workout-card {
+    border: 1px solid rgba(230, 230, 230, .5);   
+    border-radius: 4px;
+    margin: 30px 10px;
+    padding: 10px;
+    text-align: left;
+    box-shadow: rgb(230, 230, 230) 0px 1px 4px;
+}
+
+.mp-workout-card p{
+    margin: 0px;
+    color: black;
+}
+
+.mypage{
+    padding-bottom: 30px;
 }
 
 @media only screen and (min-width: 700px){
@@ -315,14 +360,23 @@
     .create-workout-form .separator .selection-dropdown .dropdown-list{
         width: 270px;
     }
-    .form-field{
-        width: 80%;
-    }
+
     .form-field .selection-dropdown .dropdown-list{
-        width: 510px;
+        width: 640px;
     }
     .create-workout{
         padding: 10px 30px;
+    }
+    .mypage{
+        padding: 30px 0px;
+        width: 500px;
+        margin: 0 auto;
+    }
+    .authorField .selection-dropdown .input-wrapper{
+        width: 320px;
+    }
+    .authorField .selection-dropdown .dropdown-list{
+        width: 320px;
     }
 }
 

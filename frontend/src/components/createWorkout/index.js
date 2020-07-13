@@ -79,6 +79,7 @@ class Create extends Component{
         return(
             <React.Fragment>
                 <Header />
+                <div style={{backgroundColor:"white", height:"100vh"}}>
                 <div className="create-workout">
                     <div className="cw-header">
                         <img src={lab} alt="create new workout section" />
@@ -227,7 +228,8 @@ class Create extends Component{
                             </div>
                         : null
                     }
-
+            
+                    </div>
                 </div>
 
                 <Modal 

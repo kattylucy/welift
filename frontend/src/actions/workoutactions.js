@@ -2,7 +2,7 @@ import { url } from '../data/url';
 import Axios from "axios";
 import history from '../history';
 import { toast } from "react-toastify";
-import { GET_WORKOUTS, GET_WORKOUT } from '../cons';
+import { GET_WORKOUTS, GET_WORKOUT, MY_WORKOUT } from '../cons';
 
 
 var setToast = (status, message) =>
@@ -136,7 +136,27 @@ export const createWorkout = (workout) => dispatch => {
     .then(response => {
        setTimeout(() => {
           history.push(`/workout/${response.data._id}`)
-       }, 1000); 
+       }, 2000); 
+    })
+    .catch(err => {
+     console.log(err)
+    });
+}
+
+
+export const getMyWorkouts = () => dispatch => {
+  Axios({
+    method: "get",
+    url: `${url}workouts/byuser`,
+    headers:headers(),
+  })
+    .then(response => {
+      if(response.status === 200){
+        dispatch({
+          type: MY_WORKOUT,
+          payload: response.data
+        })
+      }
     })
     .catch(err => {
      console.log(err)

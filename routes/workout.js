@@ -86,6 +86,25 @@ router.get('/workout/:id',(req, res) => {
 
 
 
+////************
+///// GET WORKOUTS BY AUTHOR
+// *****************
+
+router.get('/byuser',(req, res) => {
+    const userID = req.get('user');
+
+    newWorkoutModel.find({workout_author:userID})
+    .populate('workout_author', 'username')
+    .populate('likes_count')
+    .populate('comments')
+    .then(response => {
+        res.send(response)
+    })
+    .catch(err => { res.send(err)})
+ });
+
+
+
 
 ////************
 ///// LIKE A WORKOUT 
@@ -168,6 +187,9 @@ router.post('/comment', verify, (req,res) => {
         console.log(err);
     })
 })
+
+
+
 
 
 module.exports = router;

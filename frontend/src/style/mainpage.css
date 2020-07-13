@@ -134,13 +134,10 @@
     margin: 0px;
 }
 
-.main-page{
-    background-color:white;
-}
 
 .reccommended-workouts h3{
     font-size: 25px;
-    color:var(--blueish);
+    color: white;
     font-weight: 800;
 }
 .reccommended-workouts{

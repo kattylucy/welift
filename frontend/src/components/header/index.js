@@ -6,7 +6,6 @@ import onClickOutside from "react-onclickoutside";
 import '../../style/mainpage.css';
 import burger from '../../assets/gym.png';
 import burgerselected from '../../assets/gymselected.png';
-import logo from '../../assets/logoletter.png';
 import avatar from  '../../assets/avatar.svg';
 
 
@@ -51,7 +50,8 @@ class Header extends Component{
                         ?
                             <React.Fragment>
                                 <div style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
-                                    <Link to='/'>Workouts</Link>
+                                    <Link to={`/`}>Workouts</Link>
+                                    <Link to={`/${localStorage.id}/myuser`}>My Workouts</Link>
                                     <Link to={`/createworkout`}>Create</Link>
                                     <div>
                                         <p style={{color:"white"}} onClick={() => this.setState({settings:!this.state.settings})}>{username}</p>
@@ -76,7 +76,7 @@ class Header extends Component{
                         <div className="header-desktop">
                                 <div style={{margin:"20px"}}>
                                     <Link to={'/'}>Home</Link>
-                                    <Link to={`${localStorage.id}/dash`}>Your Workouts</Link>
+                                    <Link to={`/${localStorage.id}/myuser`}>Workouts</Link>
                                     <Link to={`/createworkout`}>Create</Link>
                                 </div>
                         </div>

@@ -1,6 +1,7 @@
 import {
     GET_WORKOUTS,
-    GET_WORKOUT
+    GET_WORKOUT,
+    MY_WORKOUT
   } from '../cons/index';
   
   const INITIAL_STATE = {
@@ -18,6 +19,12 @@ import {
         return{
           ...state,
           workout: payload
+        }
+      }
+      case MY_WORKOUT:{
+        return{
+          ...state,
+          my_workouts:payload
         }
       }
       default:
