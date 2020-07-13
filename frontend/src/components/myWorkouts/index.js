@@ -7,8 +7,9 @@ import { getMyWorkouts, deleteWorkout } from '../../actions/workoutactions';
 import Moment from 'react-moment';
 import Modal from '../modal';
 //components
-import Workouts from '../workouts';
 import avatar from  '../../assets/avatar.svg';
+import loading from '../../assets/creating.gif';
+
 
 
 
@@ -30,7 +31,12 @@ class MyWorkouts extends Component{
     }
 
     deleteworkout = () => {
+        this.setState({deleting:true})
         this.props.deleteWorkout(this.state.workoutid);
+
+        setTimeout(() => {
+            this.setState({deleting:false, modal:false})
+        }, 2000);
     }
 
     closeModal =() => {this.setState({modal:false})}
@@ -49,7 +55,7 @@ class MyWorkouts extends Component{
                             <p>{localStorage.username}</p>
                         </div>
                         <hr></hr>
-                        {this.props.workouts 
+                        {this.props.workouts.length
                             ? this.props.workouts.map(item => {
                                 const date = item.date;
                                 return(
@@ -60,7 +66,9 @@ class MyWorkouts extends Component{
                                         </div>
                                 )
                             })
-                            : null 
+                            : <div style={{textAlign:"center", fontSize:"20px"}}>
+                                You haven't create any workout, create your first workout <Link to='/createworkout' style={{color:"var(--blueish)"}}>HERE</Link>
+                              </div>
                         }
                     
 
@@ -71,16 +79,24 @@ class MyWorkouts extends Component{
                     show={this.state.modal}
                     onClose={this.closeModal}
                 >
-                   <div className="delete-workout">    
-                        <h3>Delete Workout</h3>
-                        <div>
-                            <p>Your workout helps the community <br></br> are you sure you want to delete it?</p>
-                        </div>
-                        <div style={{display:"flex", justifyContent:"center"}}>
-                            <button style={{backgroundColor:"rgb(220, 53, 69)", color:"white"}} onClick={this.deleteworkout}>Delete</button>
-                            <button onClick={this.closeModal}>Cancel</button>
-                        </div>
-                   </div>
+                    {this.state.deleting 
+                        ?
+                            <div style={{display:"flex", flexDirection:"column", padding:"20px"}}>
+                                <img src={loading} alt="your workout is being created" style={{alignSelf:"center", width:"70px", height:"70px"}}/>
+                                <p>Deleting your workout...</p>
+                            </div>
+                        :
+                            <div className="delete-workout">    
+                                    <h3>Delete Workout</h3>
+                                    <div>
+                                        <p>Your workout helps the community <br></br> are you sure you want to delete it?</p>
+                                    </div>
+                                    <div style={{display:"flex", justifyContent:"center"}}>
+                                        <button style={{backgroundColor:"rgb(220, 53, 69)", color:"white"}} onClick={this.deleteworkout}>Delete</button>
+                                        <button onClick={this.closeModal}>Cancel</button>
+                                    </div>
+                            </div>
+                    }
 
                 </Modal>
 

@@ -302,7 +302,7 @@
 }
 .mp-header{
     display: flex;
-    padding: 20px;
+    padding: 20px 0px 0px;
 }
 .mp-header p{
     font-size: 25px;

@@ -5,6 +5,7 @@ import {
   } from '../cons/index';
   
   const INITIAL_STATE = {
+    my_workouts:[]
   };
   
   const workouts = (state = INITIAL_STATE, { type, payload }) => {
