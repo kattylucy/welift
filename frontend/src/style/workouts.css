@@ -97,7 +97,6 @@
     margin-top: 20px;
 }
 .cw-header h1{
-    color: var(--blueish);
     font-weight: 800;
     margin: 0px;
 }
@@ -193,8 +192,9 @@
     display: none;
 }
 .single-workout{
-    background-color: rgba(0, 0, 0, 0.844);
+    background-color: rgba(0, 0, 0, 0.944);
     padding: 10px 0px;
+    box-shadow: 2px 2px 9px 0px rgb(58, 58, 58);
 }
 .sw-header{
     position: relative;
