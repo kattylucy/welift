@@ -28,7 +28,7 @@ class MainPage extends Component{
         return(
             <React.Fragment>
                 <div style={{textAlign:"center", fontWeight:"800", color:"white", backgroundColor:"var(--blueish)"}}>For testing sign in with <br></br>
-                    username: test2@user.com <br></br>
+                    username: test@user.com <br></br>
                     password: password
                 </div>
                 <Header user={this.state.user}/>

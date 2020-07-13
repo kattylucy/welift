@@ -26,8 +26,10 @@
 
 
 #root{
-    background-image: url('../assets/back.jpeg');
+    /* background-image: url('../assets/back.jpeg'); */
     min-height: 100vh;
+    background-size: cover;
+    background-color: currentColor;
 }
 
 
