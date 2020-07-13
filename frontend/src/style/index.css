@@ -10,6 +10,9 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+a:hover{
+    text-decoration-color: transparent;
+}
 ::-webkit-scrollbar {
     width: 5px;
     color: black;

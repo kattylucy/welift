@@ -23,7 +23,7 @@ class Header extends Component{
 
     logout = () => {
         localStorage.clear();
-        window.location.reload();
+        history.push('/')
     }
 
     handleClickOutside = evt => {

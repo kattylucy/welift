@@ -50,6 +50,7 @@
     display: flex;
     padding: 0px 5px;
     width: 40px;
+    margin: 0px 5px;
 }
 .workout-card .workout-middle p{
     margin: 0px;
@@ -267,12 +268,13 @@
     margin: 30px 10px 0px;
 }
 
-.sw-comments textarea{
-    background-color: white;
+.sw-comments textarea {
+    background-color: transparent;
     resize: none;
-    border-color: transparent;
+    border-color: coral;
     height: 90px;
     border-radius: 4px;
+    color: white;
 }
 .sw-comments button{
     background-color: var(--blueish);
