@@ -13,7 +13,8 @@ var setToast = (status, message) =>
 
 const headers = () => ({
   authToken: localStorage.getItem("access-token"),
-  user: localStorage.getItem("id")
+  user: localStorage.getItem("id"),
+  username: localStorage.getItem("username")
 });
 
 export const getworkouts = () => dispatch => {

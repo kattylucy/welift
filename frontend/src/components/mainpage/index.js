@@ -3,7 +3,8 @@ import Header from "../header/index";
 //components
 import Workouts from "../workouts";
 //assets
-import grip from "../../assets/workouts/grip.png";
+import grip2 from "../../assets/workouts/strip2.png";
+
 class MainPage extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +32,7 @@ class MainPage extends Component {
             <p>We are a platform for workout collaboration</p>
           </div>
           <img
-            src={grip}
+            src={grip2}
             alt="string separating"
             style={{ width: "100%", height: "25px" }}
           />

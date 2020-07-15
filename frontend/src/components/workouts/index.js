@@ -37,6 +37,7 @@ class Workouts extends Component {
               <div
                 className="workout-card"
                 style={{ backgroundImage: `url(${background})` }}
+                key={item._id}
               >
                 <div
                   className="hover-overlay"

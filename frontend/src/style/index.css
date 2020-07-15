@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap");
 
 :root {
   --orange: #07a3ba;
@@ -9,9 +10,11 @@
   --main-green: #daff5b;
   --main-black: #363a4f;
   --second-green: rgba(206, 255, 28, 0.571);
+  --alert-red: #eb586f;
 }
 * {
-  font-family: "Glacial Indifference Regular";
+  /* font-family: "Glacial Indifference Regular"; */
+  font-family: "Roboto", sans-serif;
 }
 a:hover {
   text-decoration-color: transparent;
@@ -39,11 +42,12 @@ a:hover {
   font-size: 18px;
   text-transform: capitalize;
   background-color: white;
+  border: 3px solid var(--main-green);
 }
 
 .orange-btn {
-  background-color: var(--blueish);
-  color: white;
+  background-color: var(--main-green);
+  color: var(--main-black);
   font-weight: 800;
   border: none;
   height: 30px;
@@ -52,100 +56,13 @@ a:hover {
   font-size: 18px;
   text-transform: capitalize;
 }
+.orange-btn:disabled {
+  background-color: rgba(128, 128, 128, 0.701);
+  color: white;
+}
 
 input::placeholder {
   color: #00000029;
-}
-
-.auth-page {
-  background-image: url("../assets/backgroundmobile.png");
-  background-size: cover;
-  height: 100vh;
-}
-
-.auth-page .header-auth {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
-.auth-page .header-auth img {
-  width: 120px;
-  height: auto;
-}
-
-.auth-page .overlay {
-  position: relative;
-  float: left;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  text-align: center;
-  padding: 20px 10px;
-  border-radius: 7px;
-}
-
-.auth-page h1 {
-  color: white;
-  font-weight: 800;
-}
-
-.auth-page .form div {
-  display: flex;
-  flex-direction: column;
-  margin: 30px 20px;
-}
-
-.auth-page .form label {
-  color: white;
-  font-size: 18px;
-  margin: 0px;
-  text-align: left;
-  font-weight: 600;
-}
-
-.auth-page .form input {
-  background-color: transparent;
-  border: transparent;
-  border-bottom: 3px solid white;
-  height: 40px;
-  color: white;
-}
-.auth-page .form input:focus {
-  outline: none;
-  background-color: transparent;
-}
-
-.btn-auth {
-  background-color: var(--blueish);
-  color: white;
-  font-size: 18px;
-  font-weight: 800;
-  border: none;
-  height: 40px;
-  width: 90%;
-}
-.btn-auth:disabled {
-  background-color: gray;
-  cursor: not-allowed;
-}
-
-.register-btn {
-  background-color: white;
-  margin-top: 20px;
-  color: black;
-}
-
-.nd {
-  background-color: var(--orange);
-}
-
-.error {
-  font-size: 18px;
-  margin: 10px;
-  color: rgb(227, 35, 35);
-  font-weight: 800;
-  text-transform: capitalize;
 }
 
 .Modal-Overlay {
@@ -247,21 +164,6 @@ input::placeholder {
   text-align: center;
 }
 
-@media screen and (min-width: 1000px) {
-  .auth-page .overlay {
-    width: 500px;
-  }
-  .auth-page .header-auth img {
-    width: 200px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .auth-page {
-    background-image: url("../assets/background.png");
-  }
-}
-
 /* NEW CSS */
 
 .green-banner {
@@ -280,6 +182,59 @@ input::placeholder {
 }
 .header {
   background-color: white;
+}
+.auth-page .logo {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  flex-direction: column;
+  padding: 30px 0px;
+}
+.auth-page .logo p {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+  background-color: var(--second-green);
+}
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+}
+.form-wrapper label {
+  font-size: 20px;
+}
+.auth-page form {
+  margin: 30px;
+}
+.form-wrapper input {
+  border: transparent;
+  background-color: var(--pale-grey);
+  height: 40px;
+  padding: 10px;
+  border-radius: 4px;
+}
+.form-wrapper input:focus {
+  outline-color: var(--main-green);
+}
+.auth-page button {
+  width: 100%;
+  border-radius: 0px;
+  height: 50px;
+  margin: 10px 0px;
+}
+@media screen and (min-width: 700px) {
+  .auth-page button {
+    width: 87%;
+    border-radius: 0px;
+    height: 40px;
+    border-radius: 4px;
+    margin: 10px 30px;
+  }
+  .auth-page {
+    width: 500px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 1300px) {
