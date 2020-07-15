@@ -160,6 +160,7 @@
   border: transparent;
   background-color: var(--main-green);
   color: var(--main-black);
+  height: 40px;
 }
 .comments .each-comment {
   display: flex;

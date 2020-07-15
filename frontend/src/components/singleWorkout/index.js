@@ -219,6 +219,7 @@ class Workout extends Component {
                   type="text"
                   id="comment"
                   onChange={e => this.setState({ comment: e.target.value })}
+                  value={this.state.comment}
                 ></textarea>
                 <button onClick={this.addComment}>Add Comment</button>
               </div>
