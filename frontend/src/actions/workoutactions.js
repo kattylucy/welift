@@ -1,9 +1,8 @@
-import { url } from '../data/url';
+import { url } from "../data/url";
 import Axios from "axios";
-import history from '../history';
+import history from "../history";
 import { toast } from "react-toastify";
-import { GET_WORKOUTS, GET_WORKOUT, MY_WORKOUT } from '../cons';
-
+import { GET_WORKOUTS, GET_WORKOUT, MY_WORKOUT } from "../cons";
 
 var setToast = (status, message) =>
   toast[status](message, {
@@ -12,170 +11,159 @@ var setToast = (status, message) =>
     pauseOnHover: true
   });
 
-
 const headers = () => ({
-  'authToken': localStorage.getItem('access-token'),
-  user: localStorage.getItem('id')
+  authToken: localStorage.getItem("access-token"),
+  user: localStorage.getItem("id")
 });
 
-
 export const getworkouts = () => dispatch => {
-    Axios({
-      method: "get",
-      url: `${url}workouts/all?page=1&pagination=12`,
-    })
-      .then(response => {
-        console.log(response)
-         dispatch({
-             type: GET_WORKOUTS,
-             payload: response.data.data
-         })
-      })
-      .catch(err => {
-       console.log(err)
+  Axios({
+    method: "get",
+    url: `${url}workouts/all?page=1&pagination=12`
+  })
+    .then(response => {
+      console.log(response);
+      dispatch({
+        type: GET_WORKOUTS,
+        payload: response.data.data
       });
-  };
-
-  export const getworkout = (workoutid) => dispatch => {
-    Axios({
-      method: "get",
-      url: `${url}workouts/workout/${workoutid}`,
     })
-      .then(response => {
-        console.log(response)
-         dispatch({
-             type: GET_WORKOUT,
-             payload: response.data
-         })
-      })
-      .catch(err => {
-       console.log(err)
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const getworkout = workoutid => dispatch => {
+  Axios({
+    method: "get",
+    url: `${url}workouts/workout/${workoutid}`
+  })
+    .then(response => {
+      console.log(response);
+      dispatch({
+        type: GET_WORKOUT,
+        payload: response.data
       });
-  };
-
-
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 
 export const likeWorkout = (workoutid, location) => dispatch => {
   Axios({
     method: "post",
     url: `${url}workouts/like`,
-    headers:headers(),
-    data:{
+    headers: headers(),
+    data: {
       workoutid
     }
   })
     .then(response => {
-      if(response.status === 200 && location === "all"){
-        dispatch( getworkouts() )
+      if (response.status === 200 && location === "all") {
+        dispatch(getworkouts());
       }
-      if(response.status === 200 && location === "single"){
-        dispatch( getworkout(workoutid) )
+      if (response.status === 200 && location === "single") {
+        dispatch(getworkout(workoutid));
       }
     })
     .catch(err => {
-      console.log(err)
+      console.log(err);
     });
 };
-
-
 
 export const dislikeWorkout = (workoutid, location) => dispatch => {
   Axios({
     method: "post",
     url: `${url}workouts/${workoutid}/dislike`,
-    headers:headers(),
-    data:{
+    headers: headers(),
+    data: {
       workoutid
     }
   })
     .then(response => {
-        if(response.status === 200 && location === "all"){
-          dispatch( getworkouts() )
-        }
-        if(response.status === 200 && location === "single"){
-          dispatch( getworkout(workoutid) )
-        }
+      if (response.status === 200 && location === "all") {
+        dispatch(getworkouts());
+      }
+      if (response.status === 200 && location === "single") {
+        dispatch(getworkout(workoutid));
+      }
     })
     .catch(err => {
-      console.log(err)
+      console.log(err);
     });
 };
-
 
 export const commentWorkout = (workoutid, comment) => dispatch => {
   Axios({
     method: "post",
     url: `${url}workouts/comment`,
-    headers:headers(),
-    data:{
+    headers: headers(),
+    data: {
       workout_id: workoutid,
       comment
     }
   })
     .then(response => {
-      console.log(response, "comment")
-       dispatch(
-          getworkout(workoutid)
-       )
+      console.log(response, "comment");
+      dispatch(getworkout(workoutid));
     })
     .catch(err => {
-     console.log(err)
+      console.log(err);
     });
-}
+};
 
-
-export const createWorkout = (workout) => dispatch => {
+export const createWorkout = workout => dispatch => {
   Axios({
     method: "post",
     url: `${url}workouts/new`,
-    headers:headers(),
-    data:{
-      workout,
+    headers: headers(),
+    data: {
+      workout
     }
   })
     .then(response => {
-       setTimeout(() => {
-          history.push(`/workout/${response.data._id}`)
-       }, 2000); 
+      setTimeout(() => {
+        history.push(`/workout/${response.data._id}`);
+      }, 2000);
     })
     .catch(err => {
-     console.log(err)
+      console.log(err);
     });
-}
-
+};
 
 export const getMyWorkouts = () => dispatch => {
   Axios({
     method: "get",
     url: `${url}workouts/byuser`,
-    headers:headers(),
+    headers: headers()
   })
     .then(response => {
-      if(response.status === 200){
+      if (response.status === 200) {
         dispatch({
           type: MY_WORKOUT,
           payload: response.data
-        })
+        });
       }
     })
     .catch(err => {
-     console.log(err)
+      console.log(err);
     });
-}
+};
 
-export const deleteWorkout = (workoutid) => dispatch => {
+export const deleteWorkout = workoutid => dispatch => {
   Axios({
     method: "delete",
     url: `${url}workouts/delete`,
-    headers:headers(),
-    data:{
+    headers: headers(),
+    data: {
       workoutid
     }
   })
     .then(response => {
-        dispatch( getMyWorkouts() )
+      dispatch(getMyWorkouts());
     })
     .catch(err => {
-     console.log(err)
+      console.log(err);
     });
-}
+};

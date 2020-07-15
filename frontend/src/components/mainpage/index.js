@@ -1,72 +1,46 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Header from '../header/index';
-import { getUser } from '../../actions/userAction';
-import { getworkouts } from '../../actions/workoutactions';
+import React, { Component } from "react";
+import Header from "../header/index";
 //components
-import Workouts from '../workouts';
+import Workouts from "../workouts";
+//assets
+import grip from "../../assets/workouts/grip.png";
+class MainPage extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      user: false
+    };
+  }
 
-class MainPage extends Component{
-    constructor(props){
-        super(props);
-
-        this.state={
-            user: false
-        }
-    }
-
-    componentDidMount(){
-        this.props.getworkouts();
-        const id = localStorage.getItem('id');
-        if(id){
-            this.setState({user:true})
-        }
-    }
-
-    render(){
-        return(
-            <React.Fragment>
-                <div style={{textAlign:"center", fontWeight:"800", color:"white", backgroundColor:"var(--blueish)"}}>For testing sign in with <br></br>
-                    username: test@user.com <br></br>
-                    password: password
-                </div>
-                <Header user={this.state.user}/>
-
-                <div  className="main-page">
-                    <div className="banner"></div>
-                    {/* <div className="search-bar">
-                        <input type="text" placeholder="Search Workout"/>
-                    </div> */}
-                    <div className="reccommended-workouts">
-                        <h3>Latest Routines</h3>
-                        <Workouts />
-
-                    </div>
-
-
-                </div>
-
-                   
-
-
-
-            </React.Fragment>
-            
-        );
-    }
-}
-
-
-const mapStateToProps = (state) => {
-    return {
-      
+  componentDidMount() {
+    const id = localStorage.getItem("id");
+    if (id) {
+      this.setState({ user: true });
     }
   }
 
+  render() {
+    return (
+      <React.Fragment>
+        <Header user={this.state.user} />
 
-export default connect(
-    mapStateToProps,
-    {getUser, getworkouts}
-    
-  )(MainPage);
+        <div className="main-page">
+          <div className="banner">
+            <h1>WeLift</h1>
+            <p>We are a platform for workout collaboration</p>
+          </div>
+          <img
+            src={grip}
+            alt="string separating"
+            style={{ width: "100%", height: "25px" }}
+          />
+
+          <Workouts />
+        </div>
+      </React.Fragment>
+    );
+  }
+}
+
+export default MainPage;
