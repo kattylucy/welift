@@ -124,6 +124,7 @@ export const createWorkout = workout => dispatch => {
     }
   })
     .then(response => {
+      console.log(response);
       setTimeout(() => {
         history.push(`/workout/${response.data._id}`);
       }, 2000);

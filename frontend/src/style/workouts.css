@@ -1,7 +1,7 @@
 .workout-card {
   width: 100%;
   height: 262px;
-  margin: 30px 0px;
+  margin: 30px 0;
   position: relative;
 }
 .workout-card h1,
@@ -32,12 +32,12 @@
   width: 100%;
 }
 .workout-social div {
-  margin: 0px 10px;
+  margin: 0 10px;
   display: flex;
 }
 .workout-social div p {
   color: white;
-  margin: 0px;
+  margin: 0;
 }
 .workout-social div img {
   width: 20px;
@@ -46,7 +46,7 @@
   margin-top: 5px;
 }
 .hover-overlay {
-  height: 0px;
+  height: 0;
 }
 .hover-overlay:hover {
   background: var(--second-green) !important;
@@ -67,7 +67,7 @@
 .workout-details h1 {
   text-align: center;
   font-weight: bolder;
-  margin: 20px 0px;
+  margin: 20px 0;
   color: white;
 }
 .workout-types {
@@ -80,7 +80,7 @@
   margin-right: 10px;
 }
 .workout-types p {
-  margin: 0px;
+  margin: 0;
   font-weight: normal;
   font-style: italic;
   font-size: 20px;
@@ -110,7 +110,8 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 30px 0px 0px;
+  padding: 30px 0 0;
+  cursor: pointer;
 }
 .workout-media img {
   width: 50px;
@@ -125,8 +126,8 @@
 .single-workout hr {
   border: transparent;
   border-bottom: 1px solid #c9c7c74d;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   height: 1px;
 }
 .workout-media-wrapper div:nth-child(1) {
@@ -172,18 +173,17 @@
   padding: 3px 15px;
   width: fit-content;
   display: block;
-  margin: 0px;
+  margin: 0;
   font-size: 25px;
   border-radius: 50%;
 }
 .each-comment p {
-  margin: 0px;
+  margin: 0 0 0 10px;
   background-color: var(--main-green);
   color: var(--main-black);
   width: fit-content;
   font-weight: bolder;
   padding: 10px;
-  margin-left: 10px;
   border-radius: 4px;
 }
 .sw-header {
@@ -198,6 +198,109 @@
   font-weight: bolder;
   z-index: 99999;
 }
+.create-workout {
+  padding: 20px 0;
+}
+.cw-header h1,
+.cw-header p {
+  text-align: center;
+  color: var(--main-black);
+  font-weight: 800;
+}
+
+.create-workout-form {
+  margin: 10px;
+}
+.selection-dropdown .wrapper .input-wrapper,
+.form-field-not-search input {
+  background-color: white;
+}
+.selection-dropdown .item-already-selected {
+  background-color: var(--main-green);
+  color: var(--main-black);
+}
+.next {
+  width: 100%;
+}
+.next p {
+  margin: 30px 0 0;
+  font-size: 20px;
+  color: var(--main-black);
+  text-align: right;
+  cursor: pointer;
+}
+.form-field {
+  margin: 20px 0;
+}
+.create-workout-form textarea {
+  background-color: var(--pale-grey);
+  border: transparent;
+  height: 90px;
+  resize: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+.create-workout-form textarea:focus {
+  outline-color: var(--main-green);
+}
+.adding-section {
+  display: flex;
+}
+.adding-section button,
+.back button {
+  background-color: var(--main-green);
+  color: var(--main-black);
+  border: transparent;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: 30%;
+  font-weight: 800;
+}
+.back button {
+  border-radius: 4px;
+  height: 40px;
+}
+.adding-section button:disabled,
+.back button:disabled {
+  background-color: hsla(0, 0%, 50.2%, 0.701);
+  color: white;
+}
+.adding-section button:focus {
+  outline-color: var(--main-green);
+}
+.adding-section input {
+  width: 70%;
+}
+.selected-exercises p {
+  margin: 5px;
+  border: 3px solid var(--main-green);
+  width: fit-content;
+  border-radius: 4px;
+  padding: 5px;
+}
+.selected-exercises span {
+  color: var(--main-black);
+  font-weight: 800;
+}
+.selected-exercises {
+  display: flex;
+  flex-wrap: wrap;
+}
+.back {
+  display: flex;
+  justify-content: space-between;
+}
+.back p {
+  font-size: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.create-workout .selection-dropdown .dropdown-list div:hover {
+  color: var(--main-black);
+  background-color: var(--main-green);
+  border-left: transparent;
+}
+
 @media screen and (min-width: 700px) {
   .workout-card {
     background-repeat: no-repeat;
@@ -253,6 +356,13 @@
   .sw-header h1 {
     left: 4em;
   }
+  .create-workout {
+    width: 500px;
+    margin: 0 auto;
+  }
+  .create-workout .selection-dropdown .dropdown-list {
+    width: 480px;
+  }
 }
 
 @media screen and (min-width: 1300px) {
@@ -264,10 +374,10 @@
     left: 5.5em;
   }
   .single-workout {
-    padding: 40px 0px;
+    padding: 40px 0;
   }
   .comments {
-    padding: 30px 0px;
+    padding: 30px 0;
   }
   .workout-details {
     border-radius: 4px;

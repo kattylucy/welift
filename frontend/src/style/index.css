@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700 &display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap");
-
 :root {
   --orange: #07a3ba;
   --purple: #6236ff;
@@ -92,7 +91,7 @@ input::placeholder {
 }
 .selection-dropdown .wrapper .input-wrapper,
 .form-field-not-search input {
-  background-image: url(/static/media/arrowdown.ae427edb.svg);
+  background-image: url("/static/media/arrowdown.ae427edb.svg");
   background-repeat: no-repeat;
   background-position: 95%;
   background-size: 15px;
@@ -125,7 +124,7 @@ input::placeholder {
   width: 95vw;
   margin-top: 2px;
   border-radius: 4px;
-  box-shadow: 0px 9px 18px -8px rgba(135, 131, 131, 0.338);
+  box-shadow: 0 9px 18px -8px rgba(135, 131, 131, 0.338);
   height: 150px;
   transition: height 0.3s ease;
 }
@@ -139,10 +138,6 @@ input::placeholder {
   font-weight: 600;
 }
 
-.selection-dropdown .item-already-selected {
-  background-color: transparent;
-  color: var(--blueish);
-}
 .selection-dropdown input {
   height: 40px;
   padding-left: 5px;
@@ -153,14 +148,14 @@ input::placeholder {
   outline: none;
 }
 .selection-dropdown .input-wrapper p {
-  margin: 0px;
+  margin: 0;
   padding: 8px 5px;
 }
 
 .not-matches {
   padding: 10px;
   color: var(--blueish);
-  margin: 0px;
+  margin: 0;
   text-align: center;
 }
 
@@ -188,7 +183,7 @@ input::placeholder {
   justify-content: center;
   margin: 0 auto;
   flex-direction: column;
-  padding: 30px 0px;
+  padding: 30px 0;
 }
 .auth-page .logo p {
   margin-top: 30px;
@@ -199,7 +194,7 @@ input::placeholder {
 .form-wrapper {
   display: flex;
   flex-direction: column;
-  margin: 20px 0px;
+  margin: 20px 0;
 }
 .form-wrapper label {
   font-size: 20px;
@@ -219,14 +214,14 @@ input::placeholder {
 }
 .auth-page button {
   width: 100%;
-  border-radius: 0px;
+  border-radius: 0;
   height: 50px;
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 @media screen and (min-width: 700px) {
   .auth-page button {
     width: 87%;
-    border-radius: 0px;
+    border-radius: 0;
     height: 40px;
     border-radius: 4px;
     margin: 10px 30px;

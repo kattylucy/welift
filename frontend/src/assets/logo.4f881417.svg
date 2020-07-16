@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="47px" viewBox="0 0 104 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="User---no-workouts" transform="translate(-51.000000, -49.000000)">
+            <g id="Group" transform="translate(47.000000, 40.000000)">
+                <text id="WE" transform="translate(38.000000, 32.000000) rotate(-90.000000) translate(-38.000000, -32.000000) " font-family="LucidaGrande, Lucida Grande" font-size="30" font-weight="normal" fill="#363A4F">
+                    <tspan x="15" y="42">WE</tspan>
+                </text>
+                <text id="Lift" font-family="LucidaGrande-Bold, Lucida Grande" font-size="30" font-weight="bold" fill="#363A4F">
+                    <tspan x="57" y="44">Lift</tspan>
+                </text>
+                <text id="[" font-family="LucidaGrande-Bold, Lucida Grande" font-size="50" font-weight="bold" fill="#DAFF5B">
+                    <tspan x="0" y="48">[</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
