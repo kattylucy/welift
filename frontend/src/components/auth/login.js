@@ -35,6 +35,18 @@ class Login extends Component {
   render() {
     return (
       <div className="auth-page">
+        <div
+          style={{
+            backgroundColor: "var(--main-green)",
+            textAlign: "center",
+            fontWeight: "800",
+            padding: "20px"
+          }}
+        >
+          FOR TESTING PLEASE USE<br></br>
+          email: test@user.com <br></br>
+          password: password
+        </div>
         <Link to={"/"}>
           <div className="logo">
             <img src={logo} />

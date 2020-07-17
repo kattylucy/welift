@@ -79,48 +79,49 @@ class MyWorkouts extends Component {
                 Update Credentials
               </p>
             </div>
-
-            {this.props.workouts.length && this.state.tab === "workout" ? (
-              this.props.workouts.map(item => {
-                const date = item.date;
-                return (
-                  <div className="mp-workout-card" key={item.id}>
-                    <Link to={`/workout/${item._id}`}>
-                      <p style={{ fontSize: "20px" }}>{item.workout_name}</p>
-                    </Link>
-                    <p
-                      style={{
-                        color: "rgb(220, 53, 69)",
-                        textAlign: "right",
-                        cursor: "pointer"
-                      }}
-                      onClick={() => this.delete(item._id)}
-                    >
-                      Delete Workout
-                    </p>
-                    <p
-                      style={{
-                        color: "black",
-                        fontSize: "13px",
-                        textAlign: "right"
-                      }}
-                    >
-                      Created{" "}
-                      <Moment fromNow ago>
-                        {date}
-                      </Moment>
-                    </p>
-                  </div>
-                );
-              })
-            ) : (
-              <div style={{ textAlign: "center", fontSize: "20px" }}>
-                You haven't create any workout, create your first workout{" "}
-                <Link to="/createworkout" style={{ color: "var(--blueish)" }}>
-                  HERE
-                </Link>
-              </div>
-            )}
+            {this.state.tab === "workout" ? (
+              this.props.workouts.length ? (
+                this.props.workouts.map(item => {
+                  const date = item.date;
+                  return (
+                    <div className="mp-workout-card" key={item.id}>
+                      <Link to={`/workout/${item._id}`}>
+                        <p style={{ fontSize: "20px" }}>{item.workout_name}</p>
+                      </Link>
+                      <p
+                        style={{
+                          color: "rgb(220, 53, 69)",
+                          textAlign: "right",
+                          cursor: "pointer"
+                        }}
+                        onClick={() => this.delete(item._id)}
+                      >
+                        Delete Workout
+                      </p>
+                      <p
+                        style={{
+                          color: "black",
+                          fontSize: "13px",
+                          textAlign: "right"
+                        }}
+                      >
+                        Created{" "}
+                        <Moment fromNow ago>
+                          {date}
+                        </Moment>
+                      </p>
+                    </div>
+                  );
+                })
+              ) : (
+                <div style={{ textAlign: "center", fontSize: "20px" }}>
+                  You haven't create any workout, create your first workout{" "}
+                  <Link to="/createworkout" style={{ color: "var(--blueish)" }}>
+                    HERE
+                  </Link>
+                </div>
+              )
+            ) : null}
           </div>
         </div>
 

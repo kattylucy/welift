@@ -32,6 +32,18 @@ class Header extends Component {
     return (
       <React.Fragment>
         <div className="green-banner">
+          <div
+            style={{
+              backgroundColor: "var(--main-green)",
+              textAlign: "center",
+              fontWeight: "800",
+              padding: "20px"
+            }}
+          >
+            FOR TESTING PLEASE USE<br></br>
+            email: test@user.com <br></br>
+            password: password
+          </div>
           {user ? (
             <Link to="/" onClick={this.logout}>
               Logout
