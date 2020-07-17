@@ -9,6 +9,7 @@ import Modal from "../modal";
 //components
 import avatar from "../../assets/avatar.svg";
 import loading from "../../assets/creating.gif";
+import trash from "../../assets/trash.svg";
 
 class MyWorkouts extends Component {
   constructor(props) {
@@ -81,38 +82,41 @@ class MyWorkouts extends Component {
             </div>
             {this.state.tab === "workout" ? (
               this.props.workouts.length ? (
-                this.props.workouts.map(item => {
-                  const date = item.date;
-                  return (
-                    <div className="mp-workout-card" key={item.id}>
-                      <Link to={`/workout/${item._id}`}>
-                        <p style={{ fontSize: "20px" }}>{item.workout_name}</p>
-                      </Link>
-                      <p
-                        style={{
-                          color: "rgb(220, 53, 69)",
-                          textAlign: "right",
-                          cursor: "pointer"
-                        }}
-                        onClick={() => this.delete(item._id)}
-                      >
-                        Delete Workout
-                      </p>
-                      <p
-                        style={{
-                          color: "black",
-                          fontSize: "13px",
-                          textAlign: "right"
-                        }}
-                      >
-                        Created{" "}
-                        <Moment fromNow ago>
-                          {date}
-                        </Moment>
-                      </p>
-                    </div>
-                  );
-                })
+                <div className="up-workout-cards-wrapper">
+                  {this.props.workouts.map(item => {
+                    const date = item.date;
+                    return (
+                      <div className="mp-workout-card" key={item.id}>
+                        <Link to={`/workout/${item._id}`}>
+                          <p style={{ fontSize: "20px" }}>
+                            {item.workout_name}
+                          </p>
+                        </Link>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between"
+                          }}
+                        >
+                          <img
+                            src={trash}
+                            onClick={() => this.delete(item._id)}
+                          />
+
+                          <p
+                            style={{
+                              fontSize: "13px",
+                              textAlign: "right",
+                              marginTop: "20px"
+                            }}
+                          >
+                            Created <Moment from={date} ago /> ago
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               ) : (
                 <div style={{ textAlign: "center", fontSize: "20px" }}>
                   You haven't create any workout, create your first workout{" "}
@@ -121,6 +125,31 @@ class MyWorkouts extends Component {
                   </Link>
                 </div>
               )
+            ) : null}
+            {this.state.tab === "credentials" ? (
+              <div className="credentials">
+                <div className="credential-wrapper">
+                  <label htmlFor="username">Username</label>
+                  <input
+                    id="username"
+                    type="text"
+                    defaultValue={localStorage.username}
+                  />
+                </div>
+                <div className="credential-wrapper">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    id="email"
+                    type="text"
+                    defaultValue={localStorage.email}
+                  />
+                </div>
+                <div className="credential-wrapper">
+                  <label htmlFor="password">Password</label>
+                  <input id="password" type="password" />
+                </div>
+                <button className="orange-btn">Update</button>
+              </div>
             ) : null}
           </div>
         </div>

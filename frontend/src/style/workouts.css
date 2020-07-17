@@ -340,11 +340,81 @@
   margin-right: 30px;
   width: 150px;
   text-align: center;
+  cursor: pointer;
 }
 .selected-tab {
   font-weight: 800;
   border-bottom: 5px solid var(--main-green);
 }
+.up-workout-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.mp-workout-card {
+  width: 200px;
+  margin: 10px auto;
+  background-color: var(--main-black);
+  border-radius: 4px;
+  padding: 20px;
+}
+.mp-workout-card p {
+  color: white;
+  margin: 0px;
+}
+.mp-workout-card img {
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+}
+.delete-workout {
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+}
+.delete-workout button {
+  border: transparent;
+  margin-right: 10px;
+  width: 100px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 18px;
+}
+.mp-workout-card a:hover {
+  text-decoration-color: inherit;
+  color: var(--main-green);
+}
+.credential-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.credential-wrapper input {
+  background-color: white;
+  border: transparent;
+  width: 250px;
+  border-radius: 4px;
+  height: 40px;
+  padding: 10px;
+}
+.credential-wrapper label {
+  color: var(--main-black);
+  font-weight: 800;
+}
+.credential-wrapper input:focus {
+  outline-color: var(--main-green);
+}
+.credentials {
+  display: flex;
+  flex-direction: column;
+}
+.credentials button {
+  width: 150px;
+  height: 40px;
+  align-self: flex-end;
+  margin-right: 10px;
+}
+
 @media screen and (min-width: 700px) {
   .workout-card {
     background-repeat: no-repeat;
@@ -386,6 +456,10 @@
   .each-comment div {
     width: fit-content;
   }
+  .up-workout-cards-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -406,6 +480,11 @@
   }
   .create-workout .selection-dropdown .dropdown-list {
     width: 480px;
+  }
+  .mypage {
+    width: 500px;
+    margin: 30px auto;
+    padding: 30px 0px;
   }
 }
 
