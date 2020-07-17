@@ -15,7 +15,8 @@ class MyWorkouts extends Component {
     super(props);
 
     this.state = {
-      user: false
+      user: false,
+      tab: "workout"
     };
   }
 
@@ -40,6 +41,10 @@ class MyWorkouts extends Component {
     this.setState({ modal: false });
   };
 
+  selectTab = title => {
+    this.setState({ tab: title });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -49,11 +54,33 @@ class MyWorkouts extends Component {
             <div className="banner"></div>
 
             <div className="mp-header">
-              <img src={avatar} alt="your avatar" />
-              <p>{localStorage.username}</p>
+              <div className="profile-picture">
+                <p>{localStorage.username.slice(0, 1)}</p>
+              </div>
+
+              <div>
+                <p>{localStorage.username}</p>
+                <p>{localStorage.email}</p>
+              </div>
             </div>
-            <hr></hr>
-            {this.props.workouts.length ? (
+            <div className="tabs">
+              <p
+                onClick={() => this.selectTab("workout")}
+                className={this.state.tab === "workout" ? "selected-tab" : null}
+              >
+                My Workouts
+              </p>
+              <p
+                onClick={() => this.selectTab("credentials")}
+                className={
+                  this.state.tab === "credentials" ? "selected-tab" : null
+                }
+              >
+                Update Credentials
+              </p>
+            </div>
+
+            {this.props.workouts.length && this.state.tab === "workout" ? (
               this.props.workouts.map(item => {
                 const date = item.date;
                 return (

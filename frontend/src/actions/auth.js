@@ -57,6 +57,7 @@ export const login = data => dispatch => {
         localStorage.setItem("access-token", response.data.token);
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("id", response.data.id);
+        localStorage.setItem("email", response.data.email);
         history.push("/");
       }
     })

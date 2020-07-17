@@ -300,7 +300,51 @@
   background-color: var(--main-green);
   border-left: transparent;
 }
-
+.mypage {
+  background-color: var(--pale-grey);
+}
+.mp-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mp-header p {
+  text-align: center;
+  margin: 0px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--main-black);
+}
+.mp-header .profile-picture {
+  color: white;
+  background-color: var(--main-black);
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  border: 2px solid var(--main-green);
+  align-self: center;
+}
+.mp-header .profile-picture p {
+  color: white;
+  padding: 20px;
+  font-size: 25px;
+}
+.tabs {
+  display: flex;
+  padding: 50px 0px 0px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #97979735;
+}
+.tabs p {
+  margin: 0px;
+  margin-right: 30px;
+  width: 150px;
+  text-align: center;
+}
+.selected-tab {
+  font-weight: 800;
+  border-bottom: 5px solid var(--main-green);
+}
 @media screen and (min-width: 700px) {
   .workout-card {
     background-repeat: no-repeat;
