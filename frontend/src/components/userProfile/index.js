@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import Header from "../header/index";
 import { getUser } from "../../actions/userAction";
 import { getMyWorkouts, deleteWorkout } from "../../actions/workoutactions";
+import { resetEmail } from "../../actions/auth";
 import Moment from "react-moment";
 import Modal from "../modal";
+import { ToastContainer } from "react-toastify";
 //components
-import avatar from "../../assets/avatar.svg";
 import loading from "../../assets/creating.gif";
 import trash from "../../assets/trash.svg";
 
@@ -17,7 +18,9 @@ class MyWorkouts extends Component {
 
     this.state = {
       user: false,
-      tab: "workout"
+      tab: "workout",
+      deleting: false,
+      resetPassword: false
     };
   }
 
@@ -39,17 +42,22 @@ class MyWorkouts extends Component {
   };
 
   closeModal = () => {
-    this.setState({ modal: false });
+    this.setState({ modal: false, modalReset: false });
   };
 
   selectTab = title => {
     this.setState({ tab: title });
   };
 
+  update = () => {
+    this.props.resetEmail(this.state.email);
+  };
+
   render() {
     return (
       <React.Fragment>
         <Header user={this.state.user} />
+        <ToastContainer />
         <div style={{ backgroundColor: "white", height: "100vh" }}>
           <div className="mypage">
             <div className="banner"></div>
@@ -142,13 +150,22 @@ class MyWorkouts extends Component {
                     id="email"
                     type="text"
                     defaultValue={localStorage.email}
+                    onChange={e => this.setState({ email: e.target.value })}
                   />
                 </div>
-                <div className="credential-wrapper">
-                  <label htmlFor="password">Password</label>
-                  <input id="password" type="password" />
+                <div
+                  className="credential-wrapper"
+                  onClick={() =>
+                    this.setState({
+                      modalReset: true
+                    })
+                  }
+                >
+                  <p>Reset your password</p>
                 </div>
-                <button className="orange-btn">Update</button>
+                <button className="orange-btn" onClick={this.update}>
+                  Update
+                </button>
               </div>
             ) : null}
           </div>
@@ -194,6 +211,31 @@ class MyWorkouts extends Component {
             </div>
           )}
         </Modal>
+        <Modal show={this.state.modalReset} onClose={this.closeModal}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              padding: "20px 0px"
+            }}
+          >
+            <div className="credential-wrapper">
+              <label htmlFor="password">New Password</label>
+              <input
+                id="password"
+                type="password"
+                onChange={e => this.setState({ password: e.target.value })}
+                style={{ backgroundColor: "var(--pale-grey)" }}
+              />
+            </div>
+            <button
+              className="orange-btn"
+              style={{ alignSelf: "flex-end", margin: "10px" }}
+            >
+              Reset
+            </button>
+          </div>
+        </Modal>
       </React.Fragment>
     );
   }
@@ -208,5 +250,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   getUser,
   getMyWorkouts,
-  deleteWorkout
+  deleteWorkout,
+  resetEmail
 })(MyWorkouts);

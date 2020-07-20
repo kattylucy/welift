@@ -389,6 +389,13 @@
   flex-direction: column;
   padding: 10px;
 }
+.credential-wrapper p {
+  margin: 0px;
+  margin-top: 10px;
+  color: var(--main-black);
+  font-weight: 800;
+  cursor: pointer;
+}
 .credential-wrapper input {
   background-color: white;
   border: transparent;

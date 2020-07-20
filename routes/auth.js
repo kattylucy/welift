@@ -2,6 +2,7 @@ const router = require("express").Router();
 const UserModel = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const verify = require("./verifyToken");
 
 router.post("/signup", async (req, res) => {
   const { username, password, email } = req.body;
@@ -77,6 +78,25 @@ router.post("/login", (req, res) => {
     .catch(err => {
       res.send(err);
     });
+});
+
+router.post("/reset/email", (req, res) => {
+  const { email, id } = req.body;
+  UserModel.findOne({ email })
+    .then(response => {
+      if (response) {
+        res.status(400).send({ message: "email already exist" });
+      } else {
+        UserModel.findByIdAndUpdate(
+          id,
+          { $set: { email: email } },
+          { new: true }
+        )
+          .then(ress => res.send({ message: email }))
+          .catch(err => res.send(err));
+      }
+    })
+    .catch(err => res.send(err));
 });
 
 module.exports = router;

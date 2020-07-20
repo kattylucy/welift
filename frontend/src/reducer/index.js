@@ -1,14 +1,11 @@
-import { combineReducers } from 'redux';
-import auth from '../reducer/authReducer';
-import workouts from '../reducer/workoutsReducer';
-import {reducer as notificationsReducer} from 'reapop';
-
+import { combineReducers } from "redux";
+import auth from "../reducer/authReducer";
+import workouts from "../reducer/workoutsReducer";
 
 ///import all reducers
 const allReducers = combineReducers({
-    auth,
-    workouts,
-    notifications: notificationsReducer()
+  auth,
+  workouts
 });
 
 export default allReducers;

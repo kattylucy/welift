@@ -2,21 +2,13 @@ import { url } from "../data/url";
 import Axios from "axios";
 import history from "../history";
 import { AUTH_ERROR } from "../cons/index";
+import { toast } from "react-toastify";
 
 const headers = () => ({
-  "access-token": localStorage.getItem("access-token"),
-  uid: localStorage.getItem("uid"),
-  client: localStorage.getItem("client"),
-  id: localStorage.getItem("id")
+  authToken: localStorage.getItem("access-token"),
+  user: localStorage.getItem("id"),
+  username: localStorage.getItem("username")
 });
-
-const storeCredentials = (headers, data) => {
-  localStorage.setItem("access-token", headers["access-token"]);
-  localStorage.setItem("uid", headers.uid);
-  localStorage.setItem("client", headers.client);
-  localStorage.setItem("id", data.id);
-  localStorage.setItem("name", data.attributes.nickname);
-};
 
 export const signup = data => dispatch => {
   console.log(data);
@@ -47,7 +39,6 @@ export const login = data => dispatch => {
     data
   })
     .then(response => {
-      console.log(response, "response");
       if (response.data.message) {
         dispatch({
           type: AUTH_ERROR,
@@ -63,5 +54,24 @@ export const login = data => dispatch => {
     })
     .catch(err => {
       console.log(err);
+    });
+};
+
+export const resetEmail = email => dispatch => {
+  Axios({
+    method: "post",
+    url: `${url}auth/reset/email`,
+    headers: headers(),
+    data: {
+      email,
+      id: localStorage.id
+    }
+  })
+    .then(response => {
+      localStorage.setItem("email", response.data.message);
+      toast.info("Your email was updated");
+    })
+    .catch(error => {
+      console.log(error);
     });
 };

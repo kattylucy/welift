@@ -7,7 +7,7 @@ import login from "./components/auth/login";
 import workout from "./components/singleWorkout/index";
 import createworkout from "./components/createWorkout";
 import myWorkouts from "./components/userProfile";
-
+import "react-toastify/dist/ReactToastify.css";
 import "../src/style/index.css";
 import "../src/style/normalize.css";
 import "bootstrap/dist/css/bootstrap.min.css";

@@ -218,6 +218,10 @@ input::placeholder {
   height: 50px;
   margin: 10px 0;
 }
+.Toastify__toast--info {
+  background-color: var(--main-black);
+  color: white;
+}
 @media screen and (min-width: 700px) {
   .auth-page button {
     width: 87%;
